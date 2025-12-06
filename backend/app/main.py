@@ -3,9 +3,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.db.database import engine, Base
 from app.api import auth, admin, employee, client, consultation, quotation, contract, installation, inventory, item
+from app.db.init_db import init_db
 
 # 데이터베이스 테이블 생성
 Base.metadata.create_all(bind=engine)
+
+# 데이터베이스 초기화 (관리자 계정 생성)
+try:
+    init_db()
+except Exception as e:
+    print(f"⚠️  데이터베이스 초기화 중 오류 (무시 가능): {e}")
 
 app = FastAPI(
     title="넥소코리아 고객관리 API",
