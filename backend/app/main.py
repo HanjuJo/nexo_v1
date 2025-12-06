@@ -23,7 +23,7 @@ app = FastAPI(
 # CORS 설정
 # 내부 네트워크 사용을 위해 유연한 설정
 # ALLOWED_ORIGINS가 비어있으면 모든 origin 허용 (내부 네트워크용)
-cors_origins = settings.ALLOWED_ORIGINS if settings.ALLOWED_ORIGINS else ["*"]
+cors_origins = settings.allowed_origins_list if settings.allowed_origins_list else ["*"]
 
 app.add_middleware(
     CORSMiddleware,
