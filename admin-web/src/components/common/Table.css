@@ -1,0 +1,36 @@
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container thead {
+  background-color: #f8f9fa;
+}
+
+.table-container th,
+.table-container td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.table-container th {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.table-container tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.table-container tbody tr:last-child td {
+  border-bottom: none;
+}
+
