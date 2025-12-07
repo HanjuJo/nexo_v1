@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.db.database import engine, Base
-from app.api import auth, admin, employee, client, consultation, quotation, contract, installation, inventory, item
+from app.api import auth, admin, employee, client, consultation, quotation, contract, installation, inventory, item, backup
 from app.db.init_db import init_db
 
 # 데이터베이스 테이블 생성
@@ -44,6 +44,7 @@ app.include_router(contract.router, prefix="/api/contracts", tags=["계약"])
 app.include_router(installation.router, prefix="/api/installations", tags=["설치/AS"])
 app.include_router(inventory.router, prefix="/api/inventory", tags=["재고"])
 app.include_router(item.router, prefix="/api/items", tags=["품목"])
+app.include_router(backup.router, prefix="/api/backup", tags=["백업"])
 
 
 @app.get("/")
