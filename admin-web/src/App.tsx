@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ToastProvider } from './contexts/ToastContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import AdminAccounts from './pages/admin/AdminAccounts';
@@ -20,6 +21,7 @@ import InstallationList from './pages/installations/InstallationList';
 import InstallationDetail from './pages/installations/InstallationDetail';
 import InventoryList from './pages/inventory/InventoryList';
 import InventoryDetail from './pages/inventory/InventoryDetail';
+import Backup from './pages/Backup';
 import Layout from './components/Layout';
 import './App.css';
 
@@ -72,8 +74,9 @@ const SuperAdminRoute: React.FC<{ children: React.ReactNode }> = ({ children }) 
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <Routes>
+      <ToastProvider>
+        <Router>
+          <Routes>
           <Route path="/login" element={<Login />} />
           <Route
             path="/"
@@ -289,9 +292,18 @@ function App() {
                 </AdminRoute>
               }
             />
+            <Route
+              path="backup"
+              element={
+                <AdminRoute>
+                  <Backup />
+                </AdminRoute>
+              }
+            />
           </Route>
         </Routes>
       </Router>
+      </ToastProvider>
     </AuthProvider>
   );
 }

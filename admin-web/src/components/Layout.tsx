@@ -60,6 +60,9 @@ const Layout: React.FC = () => {
               <li>
                 <Link to="/inventory">재고 관리</Link>
               </li>
+              <li>
+                <Link to="/backup">데이터 백업</Link>
+              </li>
             </>
           )}
         </ul>
